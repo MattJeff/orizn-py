@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 import os
+import sys
+import warnings
 from typing import Optional
 import requests
 
@@ -38,6 +40,15 @@ class Orizn:
         self._session = requests.Session()
         self._session.headers["User-Agent"] = "orizn-py/1.0.0"
         self._session.headers["Accept"] = "application/json"
+
+        if not self.api_key and not getattr(Orizn, "_hinted", False):
+            Orizn._hinted = True
+            print(
+                "[orizn] No API key found. Free mode: quick checks only.\n"
+                "[orizn] Get your free key → https://visa.orizn.app\n"
+                '[orizn] Then pass it: Orizn(api_key="orizn_visa_...")',
+                file=sys.stderr,
+            )
 
     def check(self, passport: str, destination: str) -> VisaCheckResult:
         """Quick visa check. No API key needed."""
