@@ -39,6 +39,12 @@ print(visa.tips)
 | `changes(passport?, destination?)` | Key (Starter) | Policy changes |
 | `stats()` | None | Coverage stats |
 
+## Feedback
+
+Building a travel agent or visa tool? We'd love to hear what you're building.
+
+→ **api@orizn.app** — Feature requests, partnerships, and questions welcome.
+
 ## Links
 
 - [Get free API key](https://visa.orizn.app)
